@@ -119,9 +119,9 @@ i=len(q['^NSEI'])
 
 # this function is called on each ticker update
 def m(a):
-    p=a['p']
+    p=a['price']
     k=a['id']
-    q['c'][k]=a['c']
+    q['c'][k]=a['changePercent']
     try:
         if q[k][i]['high']<p:
             q[k][i]['high']=p
