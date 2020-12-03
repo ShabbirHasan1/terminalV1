@@ -1,2 +1,2 @@
 # terminalV1
-app
+app build
