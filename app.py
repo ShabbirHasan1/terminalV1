@@ -4,6 +4,7 @@ import websockets
 from json import dumps
 from time import sleep
 from requests import get
+from flask_cors import CORS
 from threading import Thread
 from yliveticker import YLiveTicker
 from flask import Flask, escape, request
@@ -36,7 +37,7 @@ html='''<!DOCTYPE HTML><html><head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
                 body{background:#25292E;margin:0;width:350px;}
-                table{width:100%;color:#E58947;}</style></head><body>
+                table{font-family:Arial,Helvetica,sans-serif;width:100%;color:#E58947;}</style></head><body>
                 <table border="0"id="myTable">
                         <tr><td>BANK NIFTY</td></tr>
                         <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
@@ -98,7 +99,7 @@ ws.onmessage=e=>{
 </html>'''
 
 app = Flask(__name__)
-
+CORS(app)
 @app.route('/')
 def hello():
     return html
